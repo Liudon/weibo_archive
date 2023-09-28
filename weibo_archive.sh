@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IFS="|" read -ra uids <<< "$weibo_uids" # 在这里添加需要抓取的uid
+IFS="|" read -ra my_array < <(echo "$weibo_uids") # 在这里添加需要抓取的uid
 
 # 封装curl请求函数
 function curl_retry {
