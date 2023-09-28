@@ -40,4 +40,4 @@ jobs:
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
         env:
-          GITHUB_TOKEN: ${{ secrets.hugo-deploy }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
