@@ -29,8 +29,12 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: archive weibo
-        run: ./weibo_archive.sh
+        run: |
+          chmod +x ./weibo_archive.sh
+          ./weibo_archive.sh
         shell: bash
+        env:
+          weibo_uids: ${{ vars.weibo_uids }}
 
       # Runs a set of commands using the runners shell
       - name: Commit changes
