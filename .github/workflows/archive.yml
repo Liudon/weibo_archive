@@ -29,7 +29,8 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: archive weibo
-        run: sh ./weibo_archive.sh
+        run: ./weibo_archive.sh
+        shell: bash
 
       # Runs a set of commands using the runners shell
       - name: Commit changes
