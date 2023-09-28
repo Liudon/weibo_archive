@@ -34,7 +34,7 @@ function process_card {
     # 判断是否有retweeted_status字段
     if [ $(echo $card | jq -r '.mblog | has("retweeted_status")') = "true" ]; then
         retweeted_id=$(echo $card | jq -r '.mblog.retweeted_status.id')
-        retweeted_extend=$(curl -s "https://m.weibo.cn/statuses/extend?id=$retweeted_id" | jq)
+        retweeted_extend=$(curl_retry "https://m.weibo.cn/statuses/extend?id=$retweeted_id" 5 | jq)
         card=$(echo $card | jq --argjson extend "$retweeted_extend" '.mblog.retweeted_status.extend = $extend')
     fi
     
